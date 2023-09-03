@@ -18,6 +18,7 @@ namespace ABC.Controllers
 
         #region Action to Get All Cars
         [Route("~/Car/GetAllCars")]
+        //URL will be http://localhost:55990/Car/GetAllCars
         [HttpGet]
         public IActionResult GetAllCars()
         {
@@ -32,7 +33,9 @@ namespace ABC.Controllers
             }
         }
         #endregion
-        [HttpGet("{carId}")]
+        [HttpGet]
+        [Route("~/Car/GetOnlyOneCar")]
+        //URL will be http://localhost:55990/Car/GetOnlyOneCar?carId=1
         public IActionResult GetCarById(int carId)
         {
             try
@@ -52,6 +55,7 @@ namespace ABC.Controllers
 
         [HttpPost]
         [Route("~/Car/AddOneCar")]
+        //URL will be http://localhost:55990/Car/AddOneCar
         public IActionResult AddCar([FromBody] Car car)
         {
             try
