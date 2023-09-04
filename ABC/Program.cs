@@ -16,7 +16,6 @@ internal class Program
         builder.Services.AddSwaggerGen();
 
 
-
         //Data provider service injection
         builder.Services.AddScoped<ApplicationDbContext>();
         builder.Services.AddScoped<IDataProvider, DataAccessProvider>();

@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models.models;
-using DataAccess.DAL;
 using DataProvider.DataProvider;
 
 namespace ABC.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class CustomerBooking : ControllerBase
     {

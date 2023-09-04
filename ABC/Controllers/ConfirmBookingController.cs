@@ -6,7 +6,7 @@ using DataProvider.DataProvider;
 
 namespace ABC.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class ConfirmBookingController : ControllerBase
     {

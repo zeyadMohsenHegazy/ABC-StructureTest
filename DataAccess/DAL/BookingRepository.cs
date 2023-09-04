@@ -11,7 +11,7 @@ namespace DataAccess.DAL
         {
             _context = context;
         }
-
+        
         public void AddBooking(Booking booking)
         {
             _context.Bookings.Add(booking);
