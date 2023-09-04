@@ -10,13 +10,13 @@ namespace ABC.Controllers
     [ApiController]
     public class CarController : ControllerBase
     {
-        private readonly IDataProvider _dataAccess;
-        public CarController(IDataProvider dataAccess)
+        private readonly IDataProvider _dataProvider;
+        public CarController(IDataProvider dataProvider)
         {
-            _dataAccess = dataAccess;
+            _dataProvider = dataProvider;
         }
 
-        #region Action to Get All Cars
+
         [Route("~/Car/GetAllCars")]
         //URL will be http://localhost:55990/Car/GetAllCars
         [HttpGet]
@@ -24,7 +24,7 @@ namespace ABC.Controllers
         {
             try
             {
-                var cars = _dataAccess.carRepository.GetAllCars();
+                var cars = _dataProvider.carRepository.GetAllCars();
                 return Ok(cars);
             }
             catch (Exception ex)
@@ -32,7 +32,8 @@ namespace ABC.Controllers
                 return BadRequest("An error occurred while retrieving all cars.");
             }
         }
-        #endregion
+
+
         [HttpGet]
         [Route("~/Car/GetOnlyOneCar")]
         //URL will be http://localhost:55990/Car/GetOnlyOneCar?carId=1
@@ -40,7 +41,7 @@ namespace ABC.Controllers
         {
             try
             {
-                var car = _dataAccess.carRepository.GetCarById(carId);
+                var car = _dataProvider.carRepository.GetCarById(carId);
                 if (car == null)
                 {
                     return NotFound($"Car with Id {carId} not found.");
@@ -53,6 +54,7 @@ namespace ABC.Controllers
             }
         }
 
+
         [HttpPost]
         [Route("~/Car/AddOneCar")]
         //URL will be http://localhost:55990/Car/AddOneCar
@@ -60,7 +62,7 @@ namespace ABC.Controllers
         {
             try
             {
-                _dataAccess.carRepository.AddCar(car);
+                _dataProvider.carRepository.AddCar(car);
                 return Ok("New Car Added");
             }
             catch (Exception ex)

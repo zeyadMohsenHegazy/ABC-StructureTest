@@ -33,6 +33,7 @@ internal class Program
 
         app.MapControllers();
         app.UseCors(Policy => Policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+        
         app.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
